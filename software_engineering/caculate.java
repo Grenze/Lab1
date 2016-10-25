@@ -152,7 +152,11 @@ class Expression{
 			}
 		}
 	}
-	
+	/*Merge
+	 * the method that simplifies the expression by standard format
+	 * remember to use it after change the content of the expression
+	 * example:3*x+3*x => 6*x
+	 * */
 	public static String Merge(String src){
 		Vector<String> group = new Vector<String>(Arrays.asList(src.split("\\+")));
 		StringBuffer group2 = new StringBuffer();

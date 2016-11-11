@@ -54,8 +54,7 @@ public class Var implements Comparable<Var> {
    * {@author you}.
    * */
   public int compareTo(Var o) {
-    // TODO Auto-generated method stub
-    return 0;
+      return Character.compare(this.name.charAt(0),o.name.charAt(0));
   }
   
   /*public int compareTo(Var x1) {

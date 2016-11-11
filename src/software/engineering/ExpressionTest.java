@@ -38,7 +38,7 @@ public class ExpressionTest {
 			result = "Error, invalid command!";
 		}
 		System.out.println(result);
-		assertEquals("7+6*x*y*y*z*z+4*y+6*z",result);	
+		assertEquals("7+6*x*y*y*z*z+4*y+6*z",result);
 	}
 
 }

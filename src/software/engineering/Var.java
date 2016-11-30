@@ -1,37 +1,61 @@
+
 package software.engineering;
 
-public class Var implements Comparable<Var> {
-  private String name;// The name of the Variable
-  private int power;// The power of the Variable
-  
-  public String getName() {
-    return name;
-  }
+/**
+ * 
+ */
+public class Var {
 
-  public void setName(String name) {
+    /**
+     * Default constructor
+     */
+    public Var(String name,final int power) {
     this.name = name;
-  }
-
-  public int getPower() {
-    return power;
-  }
-
-  public void setPower(int power) {
     this.power = power;
-  }
+    }
 
-  /*
- ¡¡¡¡* compareTo The method inherit from the interface "Comparable" Compare the
- ¡¡¡¡* <Var> type by name of the variable
-  */
+    /**
+     * 
+     */
+    private String name;
 
+    /**
+     * 
+     */
+    private int power = 1;
 
+    /**
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
 
-  /*
-   * stringFormat return the string format of the variable example: x on power
-   * of 4 => x*x*x*x
-   */
-  String stringFormat() {
+    /**
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return
+     */
+    public int getPower() {
+    return power;
+    }
+
+    /**
+     * @param power
+     */
+    public void setPower(int power) {
+    this.power = power;
+    }
+
+    /**
+     * @return
+     */
+    protected String stringFormat() {
     StringBuffer x1 = new StringBuffer();
     for (int i = 0; i < this.power; i++) {
       x1.append(name);
@@ -39,28 +63,21 @@ public class Var implements Comparable<Var> {
     }
     x1.deleteCharAt(x1.length() - 1);
     return x1.toString();
-  }
+    }
+
 
   /*
-   * Constructor constructs a new variable of the specified name and power
-   */
-  Var(String name,final int power) {
-    this.name = name;
-    this.power = power;
-  }
+ Â¡Â¡Â¡Â¡* compareTo The method inherit from the interface "Comparable" Compare the
+ Â¡Â¡Â¡Â¡* <Var> type by name of the variable
+  */
 
-  
-  /**
-   * {@author you}.
-   * */
-  public int compareTo(Var o) {
+
+    /**
+     * @param o 
+     * @return
+     */
+    public int compareTo(Var o) {
       return Character.compare(this.name.charAt(0),o.name.charAt(0));
-  }
-  
-  /*public int compareTo(Var x1) {
-    if(this.name.equals(x1.name))return 0;
-    
-    return Character.compare(this.name.charAt(0), x1.name.charAt(0));
-  }*/
+    }
 
 }

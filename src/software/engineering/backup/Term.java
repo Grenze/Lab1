@@ -2,31 +2,14 @@ package software.engineering;
 
 import java.util.Vector;
 
-/**
- * 
- */
 public class Term {
+  int coefficient;
+  Vector<Var> vars;
 
-    /**
-     * Default constructor
-     */
-    public Term() {
-    }
-
-    /**
-     * 
-     */
-    protected int coefficient = 1;
-
-    /**
-     * 
-     */
-    protected Vector<Var> vars = null;
-
-    /**
-     * @return
-     */
-    protected String stringFormat() {
+  /*
+   * stringFormat return the stringFormat of the term
+   */
+  String stringFormat() {
     StringBuffer x1 = new StringBuffer();
     if (coefficient != 1) {
       x1.append(coefficient);
@@ -40,11 +23,11 @@ public class Term {
     return x1.toString();
   }
 
-    /**
-     * @param var 
-     * @return
-     */
-    protected int find(String var) {
+  /*
+   * Find a method that finds the index of the variable with the specified
+   * name if no such variable was found,return -1
+   */
+  int find(String var) {
     int i1 = 0;
     for (Var v : vars) {
       if (var.equals(v.getName())) {
@@ -53,12 +36,26 @@ public class Term {
       i1++;
     }
     return -1;
-    }
+  }
 
-    /**
-     * @param content
-     */
-    Term(String content) {
+  /*
+   * simplify a method that simplifies the term by standard format
+   */
+  void simplify() {
+    for (int i1 = 0; i1 < vars.size();) { // 去除power为0的变量
+      if (vars.get(i1).getPower() == 0) {
+        vars.remove(i1);
+      } else {
+        i1++;
+      }
+    }
+    vars.sort(null);
+  }
+
+  /*
+   * Constructor constructs a term with the specified string
+   */
+  Term(String content) {
     this.coefficient = 1;
     this.vars = new Vector<Var>();
     String[] vars = content.split("\\*");
@@ -75,20 +72,6 @@ public class Term {
         }
       }
     }
-    }
-
-    /**
-     * 
-     */
-    void simplify() {
-    for (int i1 = 0; i1 < vars.size();) {
-      if (vars.get(i1).getPower() == 0) {
-        vars.remove(i1);
-      } else {
-        i1++;
-      }
-    }
-    vars.sort(null);
-    }
+  }
 
 }
